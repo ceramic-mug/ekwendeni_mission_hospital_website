@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events | Ekwendeni Mission Hospital</title>
+  <meta name="description" content="Upcoming community health events, training sessions, and hospital activities at Ekwendeni Mission Hospital.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVIGATION: Loaded from fragments/nav.html -->
+  <div id="nav-container"></div>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Events &amp; Community Activities</h1>
+        <p class="page-hero-subtitle">
+          Health days, training sessions, outreach programmes, and hospital news
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         EVENTS SECTION
+         Events are loaded automatically from data/events.json.
+         To add, edit, or delete events, use the admin GUI:
+           python3 tools/admin_gui.py
+         Or edit data/events.json directly.
+         ============================================================ -->
+    <section class="section" aria-label="Upcoming events">
+      <div class="container">
+
+        <!-- View controls: list vs calendar toggle -->
+        <div class="events-controls">
+          <h2 style="margin:0;flex:1;">Upcoming Events</h2>
+          <div class="view-toggle" role="group" aria-label="View mode">
+            <button id="view-list" class="active" aria-pressed="true">
+              &#9776; List View
+            </button>
+            <button id="view-calendar" aria-pressed="false">
+              &#128197; Calendar View
+            </button>
+          </div>
+        </div>
+
+        <!-- Upcoming events list (default view) -->
+        <!-- Populated by events.js -->
+        <div id="events-list" aria-live="polite" aria-label="Upcoming events list">
+          <div class="events-loading">Loading events&hellip;</div>
+        </div>
+
+        <!-- Calendar view (hidden by default, shown when calendar toggle is clicked) -->
+        <div id="calendar-grid" style="display:none;" aria-label="Events calendar">
+        </div>
+
+        <hr class="divider" style="margin:3rem 0 2rem;">
+
+        <!-- Past events (collapsed by default) -->
+        <section aria-label="Past events">
+          <button class="past-events-toggle" id="past-events-toggle" aria-expanded="false">
+            ▼ Show past events
+          </button>
+          <div class="past-events-list" id="past-events-list" aria-live="polite">
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         HOW TO STAY INFORMED
+         ============================================================ -->
+    <section class="section section--alt" aria-label="Stay informed">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-label">Stay Connected</span>
+          <h2 class="section-title">Keep Up to Date</h2>
+          <p class="section-subtitle">
+            Check this page regularly for new events and announcements.
+            You can also contact us directly to ask about upcoming activities.
+          </p>
+        </div>
+        <div style="text-align:center;">
+          <a href="/contact.html" class="btn btn-outline-primary">Contact the Hospital</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: Loaded from fragments/footer.html -->
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/nav.js"></script>
+  <script src="/assets/js/events.js"></script>
+
+</body>
+</html>

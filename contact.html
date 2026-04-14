@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Ekwendeni Mission Hospital</title>
+  <meta name="description" content="Contact Ekwendeni Mission Hospital — address, phone numbers, email, and an online contact form.">
+  <link rel="stylesheet" href="/assets/css/main.css">
+</head>
+<body>
+
+  <!-- NAVIGATION: Loaded from fragments/nav.html -->
+  <div id="nav-container"></div>
+
+  <main>
+
+    <!-- ============================================================
+         PAGE HERO
+         ============================================================ -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contact Us</h1>
+        <p class="page-hero-subtitle">
+          We'd love to hear from you — patients, visitors, partners, and supporters
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION: CONTACT INFO + FORM
+         ============================================================ -->
+    <section class="section" aria-label="Contact information and form">
+      <div class="container">
+        <div class="contact-layout">
+
+          <!-- Left column: Contact details -->
+          <!-- TODO: Update all contact details with real information -->
+          <div>
+            <h2 style="margin-bottom:1.5rem;">Contact Details</h2>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">📍</div>
+              <div>
+                <h4>Address</h4>
+                <address>
+                  Ekwendeni Mission Hospital<br>
+                  P.O. Box 19<br>
+                  Ekwendeni, Mzimba District<br>
+                  Northern Region, Malawi
+                </address>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">📞</div>
+              <div>
+                <h4>Telephone</h4>
+                <!-- TODO: Update with real phone numbers -->
+                <p>
+                  Main: <a href="tel:+265000000000">+265 [XXX XXX XXX]</a><br>
+                  Administration: <a href="tel:+265000000000">+265 [XXX XXX XXX]</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">🚨</div>
+              <div>
+                <h4>Emergency</h4>
+                <!-- TODO: Update with real emergency number -->
+                <p>
+                  <strong style="color:#c0392b;font-size:1.2rem;">+265 [XXX XXX XXX]</strong><br>
+                  <span style="font-size:0.9rem;color:#626567;">Available 24 hours, 7 days a week</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">✉️</div>
+              <div>
+                <h4>Email</h4>
+                <!-- TODO: Update with real email addresses -->
+                <p>
+                  General: <a href="mailto:info@ekwendenihospital.mw">info@ekwendenihospital.mw</a><br>
+                  Administration: <a href="mailto:admin@ekwendenihospital.mw">admin@ekwendenihospital.mw</a><br>
+                  Donations: <a href="mailto:donations@ekwendenihospital.mw">donations@ekwendenihospital.mw</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" aria-hidden="true">🕐</div>
+              <div>
+                <h4>OPD Hours</h4>
+                <!-- TODO: Update with real OPD opening hours -->
+                <p class="placeholder-text">
+                  Monday – Friday: [HH:MM] – [HH:MM]<br>
+                  Saturday: [HH:MM] – [HH:MM]<br>
+                  Casualty: 24 hours
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Right column: Contact form -->
+          <!-- FORM HANDLING: This form uses Formspree (https://formspree.io) for free,
+               static-site compatible email delivery.
+               Steps to set up:
+                 1. Create a free account at formspree.io
+                 2. Create a new form and copy your form ID
+                 3. Replace YOUR_FORM_ID in the action URL below
+               The free tier allows 50 submissions per month.
+               Alternative: Remove the form entirely and just list contact details. -->
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+
+            <!-- TODO: Replace YOUR_FORM_ID with your actual Formspree form ID
+                 Example: action="https://formspree.io/f/xpwzabcd" -->
+            <form
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
+              novalidate>
+
+              <div class="form-group">
+                <label for="contact-name">Your Name <span aria-hidden="true">*</span></label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  placeholder="Full name">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Email Address <span aria-hidden="true">*</span></label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  placeholder="your@email.com">
+              </div>
+
+              <div class="form-group">
+                <label for="contact-subject">Subject</label>
+                <select id="contact-subject" name="subject">
+                  <option value="">Select a topic…</option>
+                  <option value="general">General Enquiry</option>
+                  <option value="appointment">Appointment / Referral</option>
+                  <option value="donation">Donation / Partnership</option>
+                  <option value="media">Media / Press</option>
+                  <option value="complaint">Feedback or Complaint</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Message <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  required
+                  placeholder="How can we help you?"></textarea>
+              </div>
+
+              <!-- Honeypot field to reduce spam (hidden from real users) -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+              <!-- Redirect after form submission -->
+              <!-- TODO: Create a thank-you page or update this URL -->
+              <input type="hidden" name="_next" value="/contact.html?sent=1">
+
+              <button type="submit" class="btn btn-primary" style="width:100%;">
+                Send Message
+              </button>
+
+              <p class="form-note" style="margin-top:1rem;">
+                Fields marked * are required. We aim to respond within 2 working days.
+                For medical emergencies, please call our emergency line directly.
+              </p>
+
+            </form>
+
+            <!-- Success message shown when ?sent=1 is in the URL -->
+            <div id="form-success" style="display:none;padding:1rem;background:#d5f5e3;border-radius:8px;margin-top:1rem;">
+              <strong>Thank you!</strong> Your message has been received. We will be in touch shortly.
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         SECTION: MAP
+         Same OpenStreetMap embed as the About page.
+         ============================================================ -->
+    <section class="section section--alt" aria-label="Hospital location map">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Find Us</span>
+          <h2 class="section-title">How to Get Here</h2>
+          <!-- TODO: Update directions -->
+          <p class="section-subtitle placeholder-text">
+            Ekwendeni Mission Hospital is located in Ekwendeni town, Mzimba District.
+            [Add travel directions from Mzuzu and other major towns.]
+          </p>
+        </div>
+
+        <!-- OpenStreetMap embed — free, no API key required -->
+        <iframe
+          class="map-embed"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=33.70,-11.10,33.90,-10.90&amp;layer=mapnik&amp;marker=-11.3711268,33.8830377"
+          title="Map showing location of Ekwendeni Mission Hospital"
+          loading="lazy"
+          aria-label="Interactive map of Ekwendeni Mission Hospital location">
+        </iframe>
+        <p style="font-size:0.8rem;color:#626567;margin-top:0.5rem;">
+          Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: Loaded from fragments/footer.html -->
+  <div id="footer-container"></div>
+
+  <script src="/assets/js/nav.js"></script>
+
+  <!-- Show success message if form was just submitted -->
+  <script>
+    if (window.location.search.includes('sent=1')) {
+      var successEl = document.getElementById('form-success');
+      if (successEl) successEl.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

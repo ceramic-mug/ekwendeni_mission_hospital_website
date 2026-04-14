@@ -1,0 +1,78 @@
+<!-- ============================================================
+     SITE NAVIGATION FRAGMENT
+     ============================================================
+     This file is loaded automatically into every page.
+     To edit the navigation menu, ONLY edit this file.
+     Changes here will appear on all pages of the site.
+
+     To add a new page:
+       1. Add a new <li><a href="/newpage.html">New Page</a></li> below
+       2. Create the corresponding newpage.html file
+     ============================================================ -->
+
+<nav class="site-nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+
+    <!-- LOGO: Replace logo.png with the hospital logo image -->
+    <a href="/index.html" class="nav-logo" aria-label="Ekwendeni Mission Hospital — Home">
+      <!-- TODO: Replace with actual hospital logo image -->
+      <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <rect width="44" height="44" rx="8" fill="#1a5276"/>
+        <path d="M20 10h4v10h10v4H24v10h-4V24H10v-4h10V10z" fill="white"/>
+      </svg>
+      <span class="nav-logo-text">Ekwendeni Mission Hospital</span>
+    </a>
+
+    <!-- Mobile hamburger button -->
+    <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-links-list">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Main navigation links -->
+    <ul class="nav-links" id="nav-links-list" role="list">
+
+      <li>
+        <a href="/index.html">Home</a>
+      </li>
+
+      <!-- About Us with dropdown sub-pages -->
+      <li class="nav-dropdown">
+        <a href="/about.html">About Us</a>
+        <ul class="dropdown-menu" role="list">
+          <li><a href="/about.html#history">History</a></li>
+          <li><a href="/about.html#mission">Mission</a></li>
+          <li><a href="/about.html#vision">Vision</a></li>
+          <li><a href="/about.html#statistics">Key Statistics</a></li>
+          <li><a href="/about.html#location">Location</a></li>
+        </ul>
+      </li>
+
+      <!-- Services with dropdown sub-pages -->
+      <li class="nav-dropdown">
+        <a href="/services.html">Services</a>
+        <ul class="dropdown-menu" role="list">
+          <li><a href="/services.html#wards">Wards</a></li>
+          <li><a href="/services.html#opd">Outpatient (OPD)</a></li>
+          <li><a href="/services.html#maternal">Maternal Health</a></li>
+          <li><a href="/services.html#under5">Under-5 Services</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="/events.html">Events</a>
+      </li>
+
+      <li>
+        <a href="/donate.html">Donate</a>
+      </li>
+
+      <!-- Contact styled as a CTA button -->
+      <li>
+        <a href="/contact.html" class="nav-cta">Contact Us</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>

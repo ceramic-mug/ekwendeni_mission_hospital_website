@@ -1,0 +1,31 @@
+In this project, we are building a website for Ekwendeni Mission Hospital in Ekwendeni Malawi. The goal is to make it as easy to maintain and update as possible, and cheaply hosted.
+
+Infrastructural decisions:
+- Static site with python-based GUI for offline management of photos, events
+- Hosted on github pages
+- Domain from cloudflare
+
+Pages:
+- Home
+- About Us
+    - History
+    - Mission
+    - Vision
+    - Key statistics
+    - Location
+- Services
+    - Wards
+    - OPD
+    - Maternal
+    - < 5 Services
+    ... etc
+- Events
+    - Listing, calendar, with json manifest and local python gui to update and manage
+- Donate
+- Contact Us
+
+The goal tonight is to build out this structure with filler data. I will receive more information from the hospital administration in two days for filling, but for now I want to create all the places for the data.
+
+I want to make sure all pages are very cleanly and simply constructed, perhaps using a kind of static site generator or simple html, css, js for readability, comprehensibility, and maintainability for future site administrators. Please document where everything is found and how to update it.
+
+Please also write documentation for making updates, using github pages, etc.

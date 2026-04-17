@@ -107,10 +107,7 @@
           <div class="contact-form">
             <h2>Send Us a Message</h2>
 
-            <form
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              novalidate>
+            <form id="contact-form" novalidate>
 
               <div class="form-group">
                 <label for="contact-name">Your Name <span aria-hidden="true">*</span></label>
@@ -155,9 +152,6 @@
                   required
                   placeholder="How can we help you?"></textarea>
               </div>
-
-              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-              <input type="hidden" name="_next" value="/contact.html?sent=1">
 
               <button type="submit" class="btn btn-primary" style="width:100%;">
                 Send Message
@@ -210,10 +204,24 @@
   <script src="/assets/js/nav.js"></script>
 
   <script>
-    if (window.location.search.includes('sent=1')) {
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name    = document.getElementById('contact-name').value.trim();
+      var email   = document.getElementById('contact-email').value.trim();
+      var subjectEl = document.getElementById('contact-subject');
+      var subjectLabel = subjectEl.options[subjectEl.selectedIndex].text || 'General Enquiry';
+      var message = document.getElementById('contact-message').value.trim();
+
+      var subject = 'Website Enquiry: ' + subjectLabel + ' (from ' + name + ')';
+      var body    = 'From: ' + name + '\nEmail: ' + email + '\n\n' + message;
+
+      window.location.href = 'mailto:ndaghamushani@gmail.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body='    + encodeURIComponent(body);
+
       var successEl = document.getElementById('form-success');
       if (successEl) successEl.style.display = 'block';
-    }
+    });
   </script>
 
 </body>

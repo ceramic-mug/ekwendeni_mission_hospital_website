@@ -746,6 +746,22 @@ p:last-child { margin-bottom: 0; }
    11. HOME PAGE
    ============================================================ */
 
+/* Mission / Vision two-up grid */
+.mission-vision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* Values card grid — 5 col desktop, narrows in responsive section below */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
 /* Mission brief strip */
 .mission-strip {
   padding: var(--space-lg) 0;
@@ -1449,23 +1465,6 @@ hr.divider {
   }
 }
 
-/* ============================================================
-   MISSION / VISION / VALUES — index.html
-   ============================================================ */
-
-.mission-vision-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-xl);
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-}
 
 .values-card {
   background: var(--color-white);
@@ -1513,6 +1512,11 @@ hr.divider {
   color: var(--color-text);
   padding: var(--space-xs) 0;
   border-bottom: 1px solid var(--color-border);
+}
+
+/* Small phones — hide nav text so hamburger stays visible */
+@media (max-width: 480px) {
+  .nav-logo-text { display: none; }
 }
 
 /* Mobile */

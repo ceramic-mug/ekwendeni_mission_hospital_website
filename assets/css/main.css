@@ -98,6 +98,7 @@ body {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--color-text);
+  overflow-x: hidden;
   background: var(--color-bg);
   -webkit-font-smoothing: antialiased;
 }
@@ -253,6 +254,7 @@ p:last-child { margin-bottom: 0; }
 .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+.grid-2 > *, .grid-3 > *, .grid-4 > *, .stats-grid > *, .services-preview-grid > * { min-width: 0; }
 
 
 /* ============================================================
@@ -708,12 +710,13 @@ p:last-child { margin-bottom: 0; }
   border-radius: var(--radius-md);
   background: var(--color-white);
   box-shadow: var(--shadow-sm);
+  min-width: 0;
 }
 
 .stat-number {
   display: block;
   font-family: var(--font-heading);
-  font-size: 2.75rem;
+  font-size: clamp(1.6rem, 5vw, 2.75rem);
   color: var(--color-primary);
   line-height: 1;
   margin-bottom: var(--space-xs);
@@ -1426,6 +1429,7 @@ hr.divider {
 
   .values-grid { grid-template-columns: repeat(3, 1fr); }
   .mission-vision-grid { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);

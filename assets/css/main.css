@@ -305,7 +305,7 @@ p:last-child { margin-bottom: 0; }
 
 .nav-logo-text {
   font-family: var(--font-heading);
-  font-size: 1.05rem;
+  font-size: clamp(0.72rem, 2.8vw, 1.05rem);
   color: var(--color-primary);
   font-weight: bold;
   line-height: 1.3;
@@ -400,7 +400,7 @@ p:last-child { margin-bottom: 0; }
 .nav-toggle span {
   display: block;
   height: 2px;
-  background: var(--color-primary);
+  background: var(--color-heading);
   border-radius: 2px;
   transition: transform var(--transition), opacity var(--transition);
 }
@@ -1512,11 +1512,6 @@ hr.divider {
   color: var(--color-text);
   padding: var(--space-xs) 0;
   border-bottom: 1px solid var(--color-border);
-}
-
-/* Small phones — hide nav text so hamburger stays visible */
-@media (max-width: 480px) {
-  .nav-logo-text { display: none; }
 }
 
 /* Mobile */

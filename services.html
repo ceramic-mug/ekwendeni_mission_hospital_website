@@ -4,19 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Ekwendeni Mission Hospital</title>
-  <meta name="description" content="Clinical and community health services offered by Ekwendeni Mission Hospital, including inpatient wards, OPD, maternal health, and under-5 services.">
+  <meta name="description" content="Clinical and community health services offered by Ekwendeni Mission Hospital, including inpatient wards, OPD, maternal health, under-5 services, and primary health care programmes.">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
 
-  <!-- NAVIGATION: Loaded from fragments/nav.html -->
   <div id="nav-container"></div>
 
   <main>
 
-    <!-- ============================================================
-         PAGE HERO
-         ============================================================ -->
     <section class="page-hero">
       <div class="container">
         <h1>Our Services</h1>
@@ -27,11 +23,6 @@
     </section>
 
 
-    <!-- ============================================================
-         IN-PAGE SUB-NAVIGATION
-         Links to each service section below.
-         Add a new link here when adding a new service section.
-         ============================================================ -->
     <nav class="subnav" aria-label="Services sections">
       <div class="subnav-inner">
         <a href="#wards">Wards</a>
@@ -39,281 +30,177 @@
         <a href="#maternal">Maternal Health</a>
         <a href="#under5">Under-5 Services</a>
         <a href="#more-services">Other Services</a>
+        <a href="#phc">Community Health</a>
       </div>
     </nav>
 
 
-    <!-- ============================================================
-         SECTION: WARDS
-         Update the description and feature list below.
-         TODO: Add photos of the wards to assets/images/services/
-         ============================================================ -->
+    <!-- WARDS -->
     <section class="section service-section" id="wards" aria-label="Inpatient wards">
       <div class="container">
-        <div class="split-layout">
-
-          <div>
-            <span class="section-label">Inpatient Care</span>
-            <h2 class="section-title">Inpatient Wards</h2>
-            <!-- TODO: Replace with accurate ward descriptions -->
-            <p class="placeholder-text">
-              Ekwendeni Mission Hospital operates several dedicated inpatient wards providing
-              round-the-clock nursing and medical care for patients who require admission.
-              [Update with actual ward names, capacity, and specialisations.]
-            </p>
-
-            <!-- TODO: Update this list with the actual wards and their capacities -->
-            <ul class="feature-list" style="margin-top:1.5rem;">
-              <li>Medical Ward — [~XX] beds for general medical patients</li>
-              <li>Surgical Ward — [~XX] beds for pre- and post-operative care</li>
-              <li>Paediatric Ward — [~XX] beds dedicated to children</li>
-              <li>Female Ward — [~XX] beds for female patients</li>
-              <li>Male Ward — [~XX] beds for male patients</li>
-              <li>[Additional ward — update with real information]</li>
-            </ul>
-          </div>
-
-          <div>
-            <!-- TODO: Replace with an actual ward photo -->
-            <div class="img-placeholder" style="height:360px;border-radius:8px;">
-              <!-- TODO: Uncomment and update when real photo is available:
-              <img src="/assets/images/services/wards.jpg"
-                   alt="Inpatient ward at Ekwendeni Mission Hospital"
-                   class="service-img"> -->
-              <span>Photo: Inpatient ward</span>
-            </div>
-          </div>
-
+        <div class="section-header">
+          <span class="section-label">Inpatient Care</span>
+          <h2 class="section-title">Inpatient Wards</h2>
+          <p class="section-subtitle">
+            Ekwendeni Mission Hospital operates 250 inpatient beds across dedicated wards, each staffed by specialist nursing teams providing round-the-clock care.
+          </p>
         </div>
+
+        <ul class="feature-list">
+          <li>Male Ward — 25 beds</li>
+          <li>Female Ward — 25 beds</li>
+          <li>Maternity Ward — 90 beds</li>
+          <li>Children's Ward — 45 beds</li>
+          <li>Neonatal Recovery Unit (NRU) — 11 beds</li>
+          <li>TB Ward — 24 beds</li>
+          <li>Private Wing — 10 beds</li>
+          <li>Home for Pregnant Women — 20 beds</li>
+        </ul>
       </div>
     </section>
 
 
-    <!-- ============================================================
-         SECTION: OPD (Outpatient Department)
-         ============================================================ -->
+    <!-- OPD -->
     <section class="section section--alt service-section" id="opd" aria-label="Outpatient Department">
       <div class="container">
-        <div class="split-layout split-layout--reverse">
+        <div class="section-header">
+          <span class="section-label">Outpatient Care</span>
+          <h2 class="section-title">Outpatient Department (OPD)</h2>
+          <p class="section-subtitle">
+            The Outpatient Department is the main point of entry for all patients, offering general consultations, triage, and same-day treatment. Patients requiring admission are referred to the appropriate inpatient ward.
+          </p>
+        </div>
 
-          <div>
-            <span class="section-label">Outpatient Care</span>
-            <h2 class="section-title">Outpatient Department (OPD)</h2>
-            <!-- TODO: Replace with real OPD description -->
-            <p class="placeholder-text">
-              The Outpatient Department (OPD) is the main point of entry for patients seeking
-              care without hospital admission. Patients are assessed, treated, and discharged
-              the same day, or referred to the appropriate inpatient ward if admission is needed.
-              [Update with actual OPD hours, specialties available, and patient volumes.]
-            </p>
+        <ul class="feature-list">
+          <li>General OPD consultations</li>
+          <li>Chronic care clinics</li>
+          <li>HIV &amp; AIDS testing, counselling, and treatment</li>
+          <li>Mental health services</li>
+          <li>Family planning</li>
+          <li>TB screening and treatment</li>
+          <li>Triage and emergency assessment</li>
+        </ul>
 
-            <!-- TODO: Update with actual OPD services offered -->
-            <ul class="feature-list" style="margin-top:1.5rem;">
-              <li>General medical consultations</li>
-              <li>Triage and emergency assessment</li>
-              <li>Laboratory services and diagnostics</li>
-              <li>Pharmacy and prescription dispensing</li>
-              <li>HIV/AIDS testing and counselling</li>
-              <li>TB screening and treatment</li>
-              <li>Minor surgical procedures</li>
-              <li>[Additional service — to be confirmed]</li>
-            </ul>
-
-            <!-- TODO: Update with actual OPD opening hours -->
-            <div style="margin-top:1.5rem;padding:1rem;background:#f4f6f7;border-radius:8px;">
-              <h4 style="margin-bottom:0.5rem;">OPD Hours</h4>
-              <p class="placeholder-text" style="margin:0;">
-                Monday – Friday: [HH:MM] – [HH:MM]<br>
-                Saturday: [HH:MM] – [HH:MM]<br>
-                Emergency services: 24 hours, 7 days
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <!-- TODO: Replace with an actual OPD photo -->
-            <div class="img-placeholder" style="height:400px;border-radius:8px;">
-              <!-- TODO: Uncomment and update when real photo is available:
-              <img src="/assets/images/services/opd.jpg"
-                   alt="Outpatient Department at Ekwendeni Mission Hospital"
-                   class="service-img"> -->
-              <span>Photo: Outpatient Department</span>
-            </div>
-          </div>
-
+        <div style="margin-top:1.5rem;padding:1rem;background:#fff;border-radius:8px;border:1px solid #d5d8dc;">
+          <h4 style="margin-bottom:0.5rem;">Emergency Services</h4>
+          <p style="margin:0;">Casualty is open 24 hours a day, 7 days a week. For urgent referrals, patients may contact the hospital by mobile phone for triage before arrival.</p>
         </div>
       </div>
     </section>
 
 
-    <!-- ============================================================
-         SECTION: MATERNAL HEALTH
-         ============================================================ -->
+    <!-- MATERNAL HEALTH -->
     <section class="section service-section" id="maternal" aria-label="Maternal health services">
       <div class="container">
-        <div class="split-layout">
-
-          <div>
-            <span class="section-label">Mother &amp; Baby Care</span>
-            <h2 class="section-title">Maternal Health Services</h2>
-            <!-- TODO: Replace with real maternal health service description -->
-            <p class="placeholder-text">
-              Ekwendeni Mission Hospital provides comprehensive maternal health services,
-              supporting women through pregnancy, childbirth, and the postnatal period.
-              Our skilled midwives and clinical officers are available around the clock
-              to ensure safe deliveries for mothers and newborns.
-              [Update with actual services, staffing, and patient volumes.]
-            </p>
-
-            <!-- TODO: Update list with actual services -->
-            <ul class="feature-list" style="margin-top:1.5rem;">
-              <li>Antenatal care (ANC) clinics</li>
-              <li>Skilled delivery and labour ward</li>
-              <li>Emergency obstetric care</li>
-              <li>Postnatal care and follow-up</li>
-              <li>Family planning services</li>
-              <li>Prevention of Mother-to-Child Transmission (PMTCT) of HIV</li>
-              <li>Newborn care unit</li>
-              <li>[Additional service — to be confirmed]</li>
-            </ul>
-          </div>
-
-          <div>
-            <!-- TODO: Replace with an actual maternal health photo -->
-            <div class="img-placeholder" style="height:360px;border-radius:8px;">
-              <!-- TODO: Uncomment and update when real photo is available:
-              <img src="/assets/images/services/maternal.jpg"
-                   alt="Maternal health care at Ekwendeni Mission Hospital"
-                   class="service-img"> -->
-              <span>Photo: Maternal health services</span>
-            </div>
-          </div>
-
+        <div class="section-header">
+          <span class="section-label">Mother &amp; Baby Care</span>
+          <h2 class="section-title">Maternal Health Services</h2>
+          <p class="section-subtitle">
+            Our 90-bed Maternity Ward is one of the largest in the region, supported by a dedicated Neonatal Recovery Unit (NRU) with 11 beds. Skilled midwives and clinical officers are available around the clock. We also maintain a Home for Pregnant Women with 20 beds, allowing mothers from distant communities to stay close to the hospital in the final weeks of pregnancy.
+          </p>
         </div>
+
+        <ul class="feature-list">
+          <li>Antenatal care (ANC) clinics</li>
+          <li>Skilled delivery and labour ward</li>
+          <li>Emergency obstetric care</li>
+          <li>Postnatal care and follow-up</li>
+          <li>Family planning services</li>
+          <li>Prevention of Mother-to-Child Transmission (PMTCT) of HIV</li>
+          <li>Neonatal recovery unit (NRU) — 11 beds</li>
+          <li>Home for pregnant women — 20-bed residential facility</li>
+          <li>Ambulance referral for complicated obstetric cases</li>
+        </ul>
       </div>
     </section>
 
 
-    <!-- ============================================================
-         SECTION: UNDER-5 SERVICES
-         ============================================================ -->
+    <!-- UNDER-5 -->
     <section class="section section--alt service-section" id="under5" aria-label="Under-5 child health services">
       <div class="container">
-        <div class="split-layout split-layout--reverse">
+        <div class="section-header">
+          <span class="section-label">Child Health</span>
+          <h2 class="section-title">Under-5 Services</h2>
+          <p class="section-subtitle">
+            Our Under-5 Clinic offers preventive and curative healthcare for children from birth through five years of age, focusing on the most common causes of childhood illness and death in Malawi.
+          </p>
+        </div>
 
-          <div>
-            <span class="section-label">Child Health</span>
-            <h2 class="section-title">Under-5 Services</h2>
-            <!-- TODO: Replace with real under-5 service description -->
-            <p class="placeholder-text">
-              Our Under-5 Clinic provides comprehensive preventive and curative healthcare
-              for children from birth through five years of age. Regular clinic days give
-              parents and guardians the opportunity to have their children weighed, vaccinated,
-              and assessed for common childhood illnesses.
-              [Update with actual clinic days, staffing, and patient volumes.]
-            </p>
+        <ul class="feature-list">
+          <li>Growth monitoring and nutrition assessment</li>
+          <li>Immunisation according to national schedule</li>
+          <li>Integrated management of childhood illness (IMCI)</li>
+          <li>Malnutrition treatment (SAM/MAM)</li>
+          <li>Malaria prevention and treatment</li>
+          <li>Vitamin A supplementation and deworming</li>
+        </ul>
 
-            <!-- TODO: Update list with actual services -->
-            <ul class="feature-list" style="margin-top:1.5rem;">
-              <li>Growth monitoring and nutrition assessment</li>
-              <li>Immunisation according to national schedule</li>
-              <li>Integrated management of childhood illness (IMCI)</li>
-              <li>Malnutrition treatment (SAM/MAM)</li>
-              <li>Malaria prevention and treatment</li>
-              <li>Vitamin A supplementation and deworming</li>
-              <li>[Additional service — to be confirmed]</li>
-            </ul>
-
-            <!-- TODO: Update with actual under-5 clinic days/hours -->
-            <div style="margin-top:1.5rem;padding:1rem;background:#fff;border-radius:8px;border:1px solid #d5d8dc;">
-              <h4 style="margin-bottom:0.5rem;">Under-5 Clinic Days</h4>
-              <p class="placeholder-text" style="margin:0;">
-                [Day(s) of the week]: [HH:MM] – [HH:MM]<br>
-                Sick children seen any day during OPD hours.
-              </p>
-            </div>
-          </div>
-
-          <div>
-            <!-- TODO: Replace with an actual under-5 clinic photo -->
-            <div class="img-placeholder" style="height:400px;border-radius:8px;">
-              <!-- TODO: Uncomment and update when real photo is available:
-              <img src="/assets/images/services/under5.jpg"
-                   alt="Under-5 child health clinic at Ekwendeni Mission Hospital"
-                   class="service-img"> -->
-              <span>Photo: Under-5 clinic</span>
-            </div>
-          </div>
-
+        <div style="margin-top:1.5rem;padding:1rem;background:#fff;border-radius:8px;border:1px solid #d5d8dc;">
+          <h4 style="margin-bottom:0.5rem;">Sick Children</h4>
+          <p style="margin:0;">Children presenting with acute illness are seen any day during OPD hours. For enquiries, contact us on <a href="tel:+265999397034">+265 999 397 034</a>.</p>
         </div>
       </div>
     </section>
 
 
-    <!-- ============================================================
-         SECTION: OTHER SERVICES
-         Add additional services here as needed.
-         Copy one of the service sections above as a template.
-         ============================================================ -->
+    <!-- OTHER SERVICES -->
     <section class="section service-section" id="more-services" aria-label="Other services">
       <div class="container">
         <div class="section-header">
           <span class="section-label">Additional Services</span>
-          <h2 class="section-title">Other Services We Provide</h2>
-          <p class="section-subtitle placeholder-text">
-            In addition to the services above, Ekwendeni Mission Hospital provides a range
-            of specialised and support services. [Update with confirmed service list.]
+          <h2 class="section-title">Primary Health Care Programmes</h2>
+          <p class="section-subtitle">
+            Beyond our clinical wards, Ekwendeni Mission Hospital runs ten Primary Health Care programmes across the catchment area — addressing health at its roots.
           </p>
         </div>
 
-        <!-- TODO: Update each card with a real additional service -->
         <div class="grid-3">
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">🔬</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">🩸</div>
+              <h3>HIV &amp; AIDS Services</h3>
+              <p>HIV testing, counselling, treatment, and PMTCT (prevention of mother-to-child transmission) services.</p>
             </div>
           </div>
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">🩻</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">🦟</div>
+              <h3>Malaria Prevention</h3>
+              <p>Community-based malaria prevention, insecticide-treated net distribution, and treatment for all ages.</p>
             </div>
           </div>
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">💊</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">🌾</div>
+              <h3>Nutrition &amp; Micronutrients</h3>
+              <p>Malnutrition screening and treatment, micronutrient supplementation, and nutrition education as part of our Saving Newborn Lives programme.</p>
             </div>
           </div>
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">🧪</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">🧠</div>
+              <h3>Mental Health</h3>
+              <p>Community mental health services including assessment, treatment, and support for patients and families.</p>
             </div>
           </div>
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">🦷</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">💧</div>
+              <h3>Water &amp; Sanitation</h3>
+              <p>Community programmes in water access, hygiene promotion, and sanitation — foundational to preventing disease in our catchment area.</p>
             </div>
           </div>
 
           <div class="card">
             <div class="card-body" style="text-align:center;">
-              <div style="font-size:2rem;margin-bottom:0.75rem;">🏃</div>
-              <h3>[Service Name]</h3>
-              <p class="placeholder-text">Brief description of this service. [Update with real information.]</p>
+              <div style="font-size:2rem;margin-bottom:0.75rem;">🌱</div>
+              <h3>Food Security</h3>
+              <p>Community-based savings groups and food security programmes that address the social determinants of health.</p>
             </div>
           </div>
 
@@ -322,15 +209,39 @@
     </section>
 
 
-    <!-- ============================================================
-         CONTACT / REFERRAL CTA
-         ============================================================ -->
+    <!-- PHC COMMUNITY HEALTH -->
+    <section class="section section--alt" id="phc" aria-label="Community health programmes">
+      <div class="container">
+        <div class="section-header section-header--center">
+          <span class="section-label">Community Health</span>
+          <h2 class="section-title">Reaching 95,000 People</h2>
+          <p class="section-subtitle">
+            Our primary catchment area has grown from 400 sq km serving 45,000 people to 600 sq km serving 95,000 — with referral services reaching an additional 100,000. Across this area, ten PHC programmes operate through the main hospital and our three satellite facilities, each programme led by a coordinator under the supervision of the Primary Health Care Director.
+          </p>
+        </div>
+
+        <ul class="feature-list">
+          <li>Maternal &amp; Child Health</li>
+          <li>Water &amp; Sanitation</li>
+          <li>Savings &amp; Credit / Food Security</li>
+          <li>HIV &amp; AIDS</li>
+          <li>Malaria Prevention</li>
+          <li>Saving Newborn Lives</li>
+          <li>Micronutrients &amp; Nutrition</li>
+          <li>Mental Health</li>
+          <li>Family Planning</li>
+          <li>Referral &amp; Transport</li>
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
     <section class="donate-cta" aria-label="Contact us">
       <div class="container">
         <h2>Need to Visit Us?</h2>
         <p>
-          For medical emergencies, please come directly to our casualty department
-          or call our emergency line. For general enquiries, use the contact form.
+          For medical emergencies, please come directly to our casualty department or call our emergency line. For general enquiries, use the contact form.
         </p>
         <div class="btn-group" style="justify-content:center;">
           <a href="/contact.html" class="btn btn-primary">Contact Us</a>
@@ -341,7 +252,6 @@
 
   </main>
 
-  <!-- FOOTER: Loaded from fragments/footer.html -->
   <div id="footer-container"></div>
 
   <script src="/assets/js/nav.js"></script>

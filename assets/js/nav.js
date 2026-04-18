@@ -95,11 +95,34 @@
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    // Close mobile menu when a nav link is clicked
+    // Accordion: chevron buttons expand/collapse dropdown submenus on mobile
+    document.querySelectorAll('.nav-dropdown-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var parentLi = btn.closest('.nav-dropdown');
+        var isOpen = parentLi.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+        // Close other open dropdowns (accordion behaviour)
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function (other) {
+          if (other !== parentLi) {
+            other.classList.remove('is-open');
+            var otherBtn = other.querySelector('.nav-dropdown-toggle');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    });
+
+    // Close mobile menu (and all submenus) when a nav link is clicked
     document.querySelectorAll('.nav-links a').forEach(function (link) {
       link.addEventListener('click', function () {
         nav.classList.remove('nav-open');
         toggle.setAttribute('aria-expanded', 'false');
+        document.querySelectorAll('.nav-dropdown.is-open').forEach(function (li) {
+          li.classList.remove('is-open');
+          var btn = li.querySelector('.nav-dropdown-toggle');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
       });
     });
 

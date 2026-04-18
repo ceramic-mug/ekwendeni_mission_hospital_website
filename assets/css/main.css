@@ -386,6 +386,11 @@ p:last-child { margin-bottom: 0; }
   color: var(--color-primary);
 }
 
+/* ---- Dropdown accordion toggle (mobile only, hidden on desktop) ---- */
+.nav-dropdown-toggle {
+  display: none;
+}
+
 /* ---- Mobile hamburger toggle ---- */
 .nav-toggle {
   display: none;
@@ -504,6 +509,7 @@ p:last-child { margin-bottom: 0; }
   align-items: center;
   background: var(--color-primary-dark);
   overflow: hidden;
+  padding: var(--space-xl) 0;
 }
 
 .hero-bg {
@@ -1480,6 +1486,48 @@ hr.divider {
     text-align: center;
   }
 
+  /* Dropdown items: row with link on left, chevron button on right */
+  .nav-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .nav-dropdown > a {
+    flex: 1;
+  }
+
+  /* Chevron toggle button — shown on mobile */
+  .nav-dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    background: none;
+    border: none;
+    border-left: 1px solid var(--color-border);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    flex-shrink: 0;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .nav-dropdown-toggle:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+  }
+
+  .nav-chevron {
+    display: inline-block;
+    transition: transform var(--transition);
+  }
+
+  .nav-dropdown.is-open .nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Submenu: collapsed by default, full width below the row */
   .dropdown-menu {
     position: static;
     box-shadow: none;
@@ -1487,7 +1535,13 @@ hr.divider {
     border-top: 1px solid var(--color-border);
     background: var(--color-bg-alt);
     border-radius: 0;
-    display: block;  /* always show on mobile, no hover */
+    display: none;   /* collapsed by default on mobile */
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .nav-dropdown.is-open .dropdown-menu {
+    display: block;
   }
 
   .dropdown-menu li a {
@@ -1594,7 +1648,7 @@ hr.divider {
 @media (max-width: 640px) {
   .section { padding: var(--space-lg) 0; }
 
-  .hero { min-height: 400px; }
+  .hero { min-height: 400px; padding: var(--space-lg) 0; }
   .hero h1 { font-size: 1.75rem; }
   .hero-subtitle { font-size: 1rem; }
   .hero-name { font-size: 1rem; }
@@ -1639,7 +1693,7 @@ hr.divider {
 @media (max-width: 480px) {
   .section { padding: var(--space-md) 0; }
 
-  .hero { min-height: 340px; }
+  .hero { min-height: 340px; padding: var(--space-md) 0; }
   .hero h1 { font-size: 1.5rem; }
   .hero-name { font-size: 0.95rem; }
   .hero-subtitle { font-size: 0.95rem; }

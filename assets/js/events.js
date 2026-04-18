@@ -147,15 +147,19 @@
 
   /* ---- List view renderer ---- */
 
-  function renderListView(upcoming, pastContainer, upcomingContainer) {
-    if (!upcoming.length) {
-      upcomingContainer.innerHTML =
-        '<div class="events-empty">'
-        + '<p>No upcoming events scheduled at this time.</p>'
-        + '<p>Check back soon or <a href="/contact.html">contact us</a> for more information.</p>'
-        + '</div>';
+  function renderListView(upcoming, upcomingContainer, activeFilter) {
+    var filtered = activeFilter && activeFilter !== 'all'
+      ? upcoming.filter(function (e) { return e.category === activeFilter; })
+      : upcoming;
+
+    if (!filtered.length) {
+      var msg = activeFilter && activeFilter !== 'all'
+        ? '<p>No upcoming events in this category.</p><p>Try "All" to see everything.</p>'
+        : '<p>No upcoming events scheduled at this time.</p>'
+          + '<p>Check back soon or <a href="/contact.html">contact us</a> for more information.</p>';
+      upcomingContainer.innerHTML = '<div class="events-empty">' + msg + '</div>';
     } else {
-      upcomingContainer.innerHTML = upcoming.map(renderEventCard).join('');
+      upcomingContainer.innerHTML = filtered.map(renderEventCard).join('');
     }
   }
 
@@ -254,10 +258,13 @@
     var listToggle        = document.getElementById('view-list');
     var calToggle         = document.getElementById('view-calendar');
     var pastToggle        = document.getElementById('past-events-toggle');
+    var filterContainer   = document.getElementById('events-filter');
 
     if (!upcomingContainer) return;
 
     upcomingContainer.innerHTML = '<div class="events-loading">Loading events&hellip;</div>';
+
+    var activeFilter = 'all';
 
     fetch(EVENTS_URL)
       .then(function (r) {
@@ -269,10 +276,7 @@
           .sort(function (a, b) { return parseDate(a.date) - parseDate(b.date); });
 
         var now = today();
-        var upcoming = allEvents.filter(function (e) {
-          return parseDate(e.date) >= now && e.status !== 'cancelled';
-        });
-        // Include cancelled events that are upcoming so they are visible
+        // Include cancelled events so they show with the [CANCELLED] badge
         var upcomingAll = allEvents.filter(function (e) {
           return parseDate(e.date) >= now;
         });
@@ -280,8 +284,29 @@
           return parseDate(e.date) < now;
         }).reverse();  // most recent first
 
-        // Render list view
-        renderListView(upcomingAll, pastContainer, upcomingContainer);
+        // Initial list render
+        renderListView(upcomingAll, upcomingContainer, activeFilter);
+
+        // Category filter buttons
+        if (filterContainer) {
+          var filterBtns = filterContainer.querySelectorAll('.filter-btn');
+          filterBtns.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+              activeFilter = btn.getAttribute('data-category');
+              filterBtns.forEach(function (b) {
+                b.classList.toggle('filter-btn--active', b === btn);
+              });
+              renderListView(upcomingAll, upcomingContainer, activeFilter);
+            });
+          });
+
+          // Hide filter row in calendar view, show in list view
+          var showFilter = function () { filterContainer.style.display = ''; };
+          var hideFilter = function () { filterContainer.style.display = 'none'; };
+
+          if (calToggle) calToggle.addEventListener('click', hideFilter);
+          if (listToggle) listToggle.addEventListener('click', showFilter);
+        }
 
         // Render past events
         if (pastContainer) {

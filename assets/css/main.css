@@ -512,7 +512,16 @@ p:last-child { margin-bottom: 0; }
   background-image: url('/assets/images/emh_leadership.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.22;
+}
+
+/* Gradient overlay for text legibility at bottom of hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(26, 37, 54, 0.45) 100%);
+  pointer-events: none;
 }
 
 .hero-content {
@@ -520,6 +529,16 @@ p:last-child { margin-bottom: 0; }
   z-index: 1;
   max-width: var(--max-width-text);
   color: var(--color-white);
+}
+
+.hero-name {
+  display: block;
+  font-size: 1.15rem;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  color: var(--color-white);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-xs);
 }
 
 .hero-label {
@@ -691,10 +710,11 @@ p:last-child { margin-bottom: 0; }
   margin-bottom: var(--space-xs);
 }
 
-.card-tag--health    { background: #d5f5e3; color: #1e8449; }
-.card-tag--training  { background: #d6eaf8; color: #1a5276; }
-.card-tag--outreach  { background: #fef9e7; color: #b7950b; }
-.card-tag--general   { background: #f2f3f4; color: #626567; }
+.card-tag--health       { background: #d5f5e3; color: #1e8449; }
+.card-tag--training     { background: #d6eaf8; color: #1a5276; }
+.card-tag--outreach     { background: #fef9e7; color: #b7950b; }
+.card-tag--fundraising  { background: #fde8d8; color: #a04000; }
+.card-tag--general      { background: #f2f3f4; color: #626567; }
 
 
 /* ============================================================
@@ -713,6 +733,14 @@ p:last-child { margin-bottom: 0; }
   background: var(--color-white);
   box-shadow: var(--shadow-sm);
   min-width: 0;
+  border: 2px solid transparent;
+  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+}
+
+.stat-box:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--color-primary);
 }
 
 .stat-number {
@@ -1300,7 +1328,7 @@ p:last-child { margin-bottom: 0; }
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
-  outline: none;
+  outline: 2px solid transparent;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.1);
 }
@@ -1524,9 +1552,12 @@ hr.divider {
 
 /* Mobile */
 @media (max-width: 640px) {
+  .section { padding: var(--space-lg) 0; }
+
   .hero { min-height: 400px; }
   .hero h1 { font-size: 1.75rem; }
   .hero-subtitle { font-size: 1rem; }
+  .hero-name { font-size: 1rem; }
   .nav-logo-text { font-size: 0.9rem; }
 
   .services-preview-grid {
@@ -1562,4 +1593,41 @@ hr.divider {
 
   .values-grid { grid-template-columns: 1fr; }
   .partners-list { grid-template-columns: 1fr; }
+}
+
+/* Small mobile — phones narrower than 480px */
+@media (max-width: 480px) {
+  .section { padding: var(--space-md) 0; }
+
+  .hero { min-height: 340px; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero-name { font-size: 0.95rem; }
+  .hero-subtitle { font-size: 0.95rem; }
+
+  /* Event card: date badge becomes a horizontal strip at the top */
+  .event-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  .event-card-date {
+    flex-direction: row;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    justify-content: flex-start;
+  }
+
+  .event-card-day { font-size: 1.4rem; }
+
+  .stat-box { padding: var(--space-sm); }
+
+  .nav-logo-text { font-size: 0.8rem; }
+}
+
+/* Reduced motion — disable all transitions and animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+  }
 }

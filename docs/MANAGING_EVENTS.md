@@ -11,38 +11,47 @@ The admin tool is a desktop application that requires no technical knowledge.
 
 ### How to Launch
 
-1. Make sure Python 3 is installed on your computer
-   - Check by running: `python3 --version` in a terminal
-   - Download from: https://www.python.org/downloads/ if needed
-2. Open a terminal
-3. Navigate to the project folder:
-   ```
-   cd /path/to/ekwendeni_mission_hospital_website
-   ```
-4. Run the tool:
-   ```
-   python3 tools/admin_gui.py
-   ```
-5. The GUI window will open
+**Option A — Double-click (macOS, easiest):**
+1. Open the project folder in Finder
+2. Go into the `tools` folder
+3. Double-click **`launch_admin.command`**
+4. If macOS asks "Are you sure you want to open this?", click **Open**
+5. The Admin Tool window will appear
+
+**Option B — Terminal:**
+1. Make sure Python 3 is installed (`python3 --version` in Terminal)
+2. Open Terminal and navigate to the project folder
+3. Run: `python3 tools/admin_gui.py`
 
 ### Adding a New Event
 
 1. Click the **"Events Manager"** tab
 2. Click **"+ New"** button
 3. Fill in the form:
-   - **Title*** — Name of the event (required)
-   - **Date*** — Date in YYYY-MM-DD format, e.g., `2026-06-15` (required)
+   - **Title \*** — Name of the event (required)
+   - **Date \*** — Click **"📅 Pick Date"** to open a calendar, or type YYYY-MM-DD (required)
+   - **End Date** — For multi-day events only. Click "📅 Pick Date" or leave blank.
    - **Time** — Start time in 24-hour format, e.g., `09:00` (optional)
-   - **End Date** — For multi-day events, the last date (optional)
    - **Category** — Choose from the dropdown (community-health, training, outreach, fundraising, general)
-   - **Status** — Usually `upcoming` for new events
+   - **Status** — Use `upcoming` for future events. Update to `past` after the event ends.
    - **Location** — Where the event takes place (optional)
    - **Contact** — Email or phone for enquiries (optional)
-   - **Description*** — A clear description of the event (required)
+   - **Description \*** — A clear description of the event (required)
    - **Image** — Click "Browse…" to select a photo. The tool copies it automatically.
-   - **Image alt text** — A brief description of the photo (for accessibility)
+   - **Image description** — A brief description of the photo (for screen readers)
 4. Click **"💾 Save Event"**
-5. The event appears immediately on the website
+5. The event appears on the website immediately
+
+> **Tip:** If you save an event with a date in the past while the status is "upcoming",
+> the tool will ask if you want to change the status to "past" automatically.
+
+### Keeping Events Up to Date
+
+Events **do not automatically change status** — a past event will keep showing as "upcoming" unless you update it. We recommend:
+
+- After each event passes, open the Admin Tool, click the event in the list, change **Status** to `past`, and save.
+- Or delete old events if they are no longer relevant.
+- The tool shows a count of upcoming and past events in the list panel header to help you keep track.
 
 ### Editing an Event
 

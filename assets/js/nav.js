@@ -90,48 +90,58 @@
     var toggle = document.querySelector('.nav-toggle');
     if (!nav || !toggle) return;
 
+    // Inject backdrop element after the nav container
+    var backdrop = document.createElement('div');
+    backdrop.className = 'nav-backdrop';
+    backdrop.style.display = 'none';
+    var navContainer = document.getElementById('nav-container');
+    if (navContainer) navContainer.insertAdjacentElement('afterend', backdrop);
+
+    function closeMenu() {
+      nav.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      backdrop.style.display = 'none';
+      closeAllDropdowns();
+    }
+
+    function closeAllDropdowns() {
+      document.querySelectorAll('.nav-dropdown.is-open').forEach(function (li) {
+        li.classList.remove('is-open');
+        var btn = li.querySelector('.nav-dropdown-toggle');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    // Hamburger toggle
     toggle.addEventListener('click', function () {
       var isOpen = nav.classList.toggle('nav-open');
       toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      backdrop.style.display = isOpen ? 'block' : 'none';
+      if (!isOpen) closeAllDropdowns();
     });
 
-    // Accordion: chevron buttons expand/collapse dropdown submenus on mobile
+    // Backdrop click closes menu
+    backdrop.addEventListener('click', closeMenu);
+
+    // Accordion: chevron buttons expand/collapse submenus
     document.querySelectorAll('.nav-dropdown-toggle').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var parentLi = btn.closest('.nav-dropdown');
-        var isOpen = parentLi.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        var opening = !parentLi.classList.contains('is-open');
 
-        // Close other open dropdowns (accordion behaviour)
-        document.querySelectorAll('.nav-dropdown.is-open').forEach(function (other) {
-          if (other !== parentLi) {
-            other.classList.remove('is-open');
-            var otherBtn = other.querySelector('.nav-dropdown-toggle');
-            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
-          }
-        });
+        // Close all dropdowns first (accordion)
+        closeAllDropdowns();
+
+        if (opening) {
+          parentLi.classList.add('is-open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
     });
 
-    // Close mobile menu (and all submenus) when a nav link is clicked
+    // Close menu when a nav link is clicked
     document.querySelectorAll('.nav-links a').forEach(function (link) {
-      link.addEventListener('click', function () {
-        nav.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-        document.querySelectorAll('.nav-dropdown.is-open').forEach(function (li) {
-          li.classList.remove('is-open');
-          var btn = li.querySelector('.nav-dropdown-toggle');
-          if (btn) btn.setAttribute('aria-expanded', 'false');
-        });
-      });
-    });
-
-    // Close mobile menu when clicking outside the nav
-    document.addEventListener('click', function (e) {
-      if (!nav.contains(e.target)) {
-        nav.classList.remove('nav-open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
+      link.addEventListener('click', closeMenu);
     });
   }
 

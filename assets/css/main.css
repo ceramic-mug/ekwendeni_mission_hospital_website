@@ -1436,6 +1436,20 @@ hr.divider {
 
 
 /* ============================================================
+   MOBILE NAV ANIMATIONS
+   ============================================================ */
+@keyframes mobileNavSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
+/* ============================================================
    18. RESPONSIVE — MOBILE BREAKPOINTS
    ============================================================
 
@@ -1454,98 +1468,175 @@ hr.divider {
 
   .nav-toggle { display: flex; }
 
+  /* ── Mobile nav panel ── */
   .nav-links {
     display: none;
     position: absolute;
     top: 68px;
     left: 0;
     right: 0;
-    background: var(--color-white);
     flex-direction: column;
     align-items: stretch;
-    padding: var(--space-sm) 0;
-    border-top: 1px solid var(--color-border);
-    box-shadow: var(--shadow-md);
     gap: 0;
+    background: var(--color-white);
+    border-top: 3px solid var(--color-primary);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
     max-height: calc(100vh - 68px);
     overflow-y: auto;
+    padding-bottom: var(--space-md);
+    z-index: 1000;
   }
 
   .site-nav.nav-open .nav-links {
     display: flex;
+    animation: mobileNavSlideIn 0.22s ease forwards;
   }
 
+  /* ── Top-level link items ── */
   .nav-links > li > a {
+    display: flex;
+    align-items: center;
     border-radius: 0;
-    padding: var(--space-sm) var(--space-md);
+    padding: 0.85rem var(--space-md);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-heading);
+    border-bottom: 1px solid var(--color-border);
   }
 
-  .nav-links > li > a.nav-cta {
-    margin: var(--space-xs) var(--space-md);
-    border-radius: var(--radius-sm);
-    text-align: center;
+  .nav-links > li > a:hover,
+  .nav-links > li > a.active {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
   }
 
-  /* Dropdown items: row with link on left, chevron button on right */
+  /* ── Dropdown row: link fills space, chevron sits right ── */
   .nav-dropdown {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
+    border-bottom: 1px solid var(--color-border);
   }
 
   .nav-dropdown > a {
     flex: 1;
+    border-bottom: none;
   }
 
-  /* Chevron toggle button — shown on mobile */
+  /* ── Chevron toggle button ── */
   .nav-dropdown-toggle {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 48px;
+    width: 56px;
+    flex-shrink: 0;
     background: none;
     border: none;
     border-left: 1px solid var(--color-border);
     cursor: pointer;
     color: var(--color-text-muted);
-    font-size: 1rem;
-    flex-shrink: 0;
     transition: background var(--transition), color var(--transition);
   }
 
-  .nav-dropdown-toggle:hover {
+  .nav-dropdown-toggle:hover,
+  .nav-dropdown.is-open .nav-dropdown-toggle {
     background: var(--color-bg-alt);
     color: var(--color-primary);
   }
 
   .nav-chevron {
     display: inline-block;
-    transition: transform var(--transition);
+    font-size: 0.8rem;
+    transition: transform 0.22s ease;
   }
 
   .nav-dropdown.is-open .nav-chevron {
     transform: rotate(180deg);
   }
 
-  /* Submenu: collapsed by default, full width below the row */
+  /* ── Submenu: max-height accordion (no display toggling) ── */
   .dropdown-menu {
+    display: block;
     position: static;
     box-shadow: none;
     border: none;
-    border-top: 1px solid var(--color-border);
-    background: var(--color-bg-alt);
     border-radius: 0;
-    display: none;   /* collapsed by default on mobile */
+    padding: 0;
+    background: #f0f3f7;
     width: 100%;
     flex-basis: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s ease;
   }
 
   .nav-dropdown.is-open .dropdown-menu {
-    display: block;
+    max-height: 500px;
+  }
+
+  .dropdown-menu li {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .dropdown-menu li:last-child {
+    border-bottom: none;
   }
 
   .dropdown-menu li a {
-    padding-left: calc(var(--space-md) * 2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: 0.7rem var(--space-md) 0.7rem calc(var(--space-md) + 0.75rem);
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .dropdown-menu li a::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    opacity: 0.4;
+    flex-shrink: 0;
+  }
+
+  .dropdown-menu li a:hover {
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+  }
+
+  .dropdown-menu li a:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Contact CTA in mobile menu ── */
+  .nav-links > li > a.nav-cta {
+    margin: var(--space-sm) var(--space-md) var(--space-xs);
+    border-radius: var(--radius-md);
+    border-bottom: none;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-weight: bold;
+  }
+
+  .nav-links > li > a.nav-cta:hover {
+    background: var(--color-accent-light);
+    color: var(--color-white);
+  }
+
+  /* ── Backdrop overlay behind open menu ── */
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    top: 68px;
+    background: rgba(26, 37, 54, 0.45);
+    z-index: 999;
+    cursor: pointer;
+    animation: navBackdropIn 0.22s ease forwards;
   }
 
   .footer-grid {

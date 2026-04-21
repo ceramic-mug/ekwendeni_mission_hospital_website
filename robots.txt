@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://marshallformalawi.org/sitemap.xml
+Sitemap: https://ekwendenimissionhospital.com/sitemap.xml
